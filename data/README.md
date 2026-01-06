@@ -5,23 +5,32 @@ This project uses a *hybrid* dataset: **audio + lyrics + metadata**.
 
 Because audio and lyrics files are large, the GitHub repo only includes the **metadata CSVs** needed to reproduce the pipelines (assuming you have the raw files locally).
 
-## Sources used
+## Sources used (and how many tracks came from each)
 
-1) **FMA (Free Music Archive)**
-- Used as the main source of audio files + track metadata (artist/title/track IDs).
+This project’s final dataset is the combination of two subsets:
 
-2) **Kaggle “5 Million Lyrics” dataset**
-- Used as the large pool of lyrics text.
+1) **MERGE dataset (~2100+ tracks)**
+- MERGE already contains **both audio tracks and lyrics** for these songs.
+- We included ~2100+ tracks directly from MERGE.
 
-3) **Merged / master metadata**
-- We created a merged table by combining the two sources and matching tracks so each row points to:
-	- an audio file (from FMA)
-	- a lyrics file (from Kaggle lyrics, saved locally as text)
-	- a genre label (from metadata)
+2) **FMA + Kaggle “5 Million Lyrics” (~900+ matched tracks)**
+- We started from a larger pool of **~25,000 FMA tracks**.
+- We matched those FMA tracks to entries in the Kaggle **5 Million Lyrics** dataset.
+- Only **~900+ tracks** had reliable matches (so they were included).
+
+3) **Master merged metadata**
+- We built `metadata_master.csv` by concatenating:
+	- MERGE rows (audio+lyrics already available), and
+	- FMA+Kaggle matched rows (audio from FMA + lyrics from Kaggle)
+
+Each final row points to:
+- an audio file path (local)
+- a lyrics text path (local)
+- a genre label (from metadata)
 
 ## Matching / merging approach (high level)
 
-Tracks were matched across datasets using **artist + title**.
+For the **FMA + Kaggle** subset, tracks were matched using **artist + title**.
 
 Typical steps:
 - Normalize strings (lowercase, strip punctuation, collapse whitespace)
@@ -31,6 +40,15 @@ Typical steps:
 
 The output of this process is saved as the master metadata file:
 - `metadata_master.csv`
+
+## Source links (official pages)
+
+- MERGE audio dataset (Zenodo):
+	- https://zenodo.org/records/13939205
+- Kaggle “5 Million Song Lyrics Dataset”:
+	- https://www.kaggle.com/datasets/nikhilnayak123/5-million-song-lyrics-dataset
+- Kaggle FMA (Free Music Archive) small/medium:
+	- https://www.kaggle.com/datasets/imsparsh/fma-free-music-archive-small-medium
 
 ## Files in this folder
 
