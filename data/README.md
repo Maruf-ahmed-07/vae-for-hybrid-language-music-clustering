@@ -76,5 +76,8 @@ These folders are expected to exist locally, but are excluded from GitHub via `.
 - `data/audio/` (audio files)
 - `data/lyrics/` (lyrics text files)
 
+If you want to download the prepared dataset files directly, use this folder:
+- https://drive.google.com/drive/folders/1wqAJRniPUHkouTTBVkcoPgaqXAwrt2s3?usp=sharing
+
 If you clone the repo from GitHub, you need to place your local audio and lyrics files in these folders (or update paths in `metadata_master.csv`).
 
