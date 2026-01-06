@@ -5,6 +5,8 @@ This project uses a *hybrid* dataset: **audio + lyrics + metadata**.
 
 Because audio and lyrics files are large, the GitHub repo only includes the **metadata CSVs** needed to reproduce the pipelines (assuming you have the raw files locally).
 
+The three CSV files in this folder (`audio_metadata.csv`, `lyrics_metadata.csv`, `metadata_master.csv`) represent the **final combined dataset after merging MERGE + FMA**. Since MERGE and FMA/Kaggle did not share the same schema, the metadata fields were **aligned into a common structure**, and lyrics were materialized from a lyrics CSV into per-track `.txt` files before producing the final merged tables.
+
 ## Sources used (and how many tracks came from each)
 
 This project’s final dataset is the combination of two subsets:
@@ -41,6 +43,12 @@ Typical steps:
 The output of this process is saved as the master metadata file:
 - `metadata_master.csv`
 
+## Standardizing structure (what was changed)
+
+Because the source datasets used different column names and formats, we first standardized them into a shared schema (consistent identifiers and fields such as artist/title, local `audio_path`, local `lyrics_path`, and any usable labels like `genre_label`).
+
+For lyrics specifically (Kaggle lyrics), lyrics were originally stored in a CSV; they were exported into individual text files under `data/lyrics/` (one file per track, e.g. `fma_000010.txt`) so the pipelines can load lyrics consistently from disk.
+
 ## Source links (official pages)
 
 - MERGE audio dataset (Zenodo):
@@ -56,9 +64,11 @@ The output of this process is saved as the master metadata file:
 	- The main index used by the training scripts.
 	- Contains (at minimum): `audio_path`, `lyrics_path`, `genre_label`.
 - `audio_metadata.csv`
-	- Audio-side metadata extracted from FMA.
+	- Audio metadata table in the **standardized (post-merge) structure**.
+	- Contains rows from both MERGE and FMA after alignment.
 - `lyrics_metadata.csv`
-	- Lyrics-side metadata extracted from the Kaggle lyrics dataset.
+	- Lyrics metadata table in the **standardized (post-merge) structure**.
+	- Contains rows from both MERGE and FMA/Kaggle after alignment.
 
 ## Raw data (not pushed to GitHub)
 
