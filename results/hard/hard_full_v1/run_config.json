@@ -1,0 +1,23 @@
+{
+  "max_tracks": null,
+  "spec_frames": 256,
+  "spec_mels": 64,
+  "lyrics_svd_dim": 256,
+  "lyrics_max_features": 20000,
+  "latent_dim": 16,
+  "hidden_channels": 128,
+  "lyrics_hidden_dim": 256,
+  "epochs": 80,
+  "beta": 1.0,
+  "batch_size": 32,
+  "lr": 0.001,
+  "audio_recon_weight": 1.0,
+  "lyrics_recon_weight": 1.0,
+  "k_list": [
+    6,
+    8,
+    10
+  ],
+  "viz_max_points": 2000,
+  "recon_examples": 6
+}

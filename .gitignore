@@ -1,0 +1,48 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+.env/
+
+# Jupyter / tooling
+.ipynb_checkpoints/
+
+# --- OS / editor ---
+.DS_Store
+Thumbs.db
+.vscode/
+
+# --- Project data (too large for GitHub) ---
+data/audio/
+data/lyrics/
+
+# Common audio formats (extra safety)
+*.mp3
+*.wav
+*.flac
+*.ogg
+*.m4a
+
+# --- Training artifacts / arrays (if created in future runs) ---
+*.pt
+*.pth
+*.ckpt
+*.npy
+*.npz
+*.pkl
+*.joblib
+*.h5
+*.hdf5
+
+# Logs
+*.log
+
+# Local report notes (do not commit)
+FINAL_REPORT_NOTES.txt

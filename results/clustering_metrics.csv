@@ -1,0 +1,4 @@
+task,source_csv,k,silhouette,calinski_harabasz,davies_bouldin,ari,nmi,purity,repr,algo,latent_dim,beta,spec_mels,spec_frames
+easy,results/easy/audio_full/clustering_metrics.csv,6.0,0.3509040772914886,1919.2199069201013,0.9209665325408408,0.0188778031818573,0.1256817918830721,0.6931780366056572,,,,,,
+medium,results/medium/medium_spec_fast_v1/clustering_metrics.csv,6.0,0.2418014258146286,964.6519792109506,1.510877707257399,0.0572353233357418,0.2076932640282066,0.6931780366056572,audio_pca_baseline,kmeans6,,,64.0,256.0
+hard,results/hard/hard_full_v1/clustering_metrics.csv,8.0,0.4156855642795563,3835.179345267551,1.181492895702127,0.1373396971346625,0.0979751241772149,0.6931780366056572,cvae_latent,kmeans8,16.0,1.0,64.0,256.0
