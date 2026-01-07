@@ -2,6 +2,12 @@
 
 This is my Neural Networks course project: learn latent features with VAE-style models and then cluster music tracks.
 
+## Dataset + report links
+- Dataset folder (audio/lyrics + metadata): https://drive.google.com/drive/folders/1wqAJRniPUHkouTTBVkcoPgaqXAwrt2s3?usp=sharing
+- Project report (PDF): https://drive.google.com/file/d/1uWtDcjoa_txpwcqO1ZD-bBRDAwhvS4US/view?usp=sharing
+
+Note: the GitHub repo does not include raw audio/lyrics files; see `data/README.md` for how the dataset is structured.
+
 ## Repository layout
 - `data/`: metadata CSVs + pointers to audio/lyrics files
 - `notebooks/`: quick exploration / sanity checks
